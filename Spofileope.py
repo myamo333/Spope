@@ -1,13 +1,22 @@
 import requests
 import json
 import openpyxl
+import json
+
+def load_config(filename):
+    with open(filename, 'r') as file:
+        config = json.load(file)
+    return config
 
 def get_sharepoint_folders():
+
+    config = load_config("config.json")
+
     # Azure ADで登録したアプリケーションの情報
-    client_id = "Your-Client-ID"
-    client_secret = "Your-Client-Secret"
-    tenant_id = "Your-Tenant-ID"
-    resource = "https://<your-sharepoint-site>.sharepoint.com"  # SharePointのURL
+    client_id = config["client_id"]
+    client_secret = config["client_secret"]
+    tenant_id = config["tenant_id"]
+    resource = config["sharepoint_url"]
 
     # OAuth 2.0のトークンを取得
     token_url = f"https://login.microsoftonline.com/{tenant_id}/oauth2/token"
@@ -79,7 +88,7 @@ def save_excel_file(wb, file_name):
     wb.save(file_name)
 
 def main():
-    
+
 
 if __name__ == "__main__":
     pass

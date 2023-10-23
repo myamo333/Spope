@@ -1,0 +1,6 @@
+{
+    "client_id": "Your-Client-ID",
+    "client_secret": "Your-Client-Secret",
+    "tenant_id": "Your-Tenant-ID",
+    "sharepoint_url": "https://<your-sharepoint-site>.sharepoint.com"
+}
